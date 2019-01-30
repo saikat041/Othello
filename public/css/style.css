@@ -1,0 +1,27 @@
+body{
+    background:  #e8f470;
+}
+
+#board{
+    margin:  auto;
+    width: 400px;
+    text-align: center;
+}
+
+#gamearea{
+     margin:auto;
+     border:1px solid black;
+}
+
+
+#player1{
+    display: inline-block;
+    color: #ffffff;
+    float: left;
+}
+
+#player2{
+    display: inline-block;
+    float: right;
+}
+
