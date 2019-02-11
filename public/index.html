@@ -4,8 +4,6 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Othello</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap_4.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
     <link rel="icon" type="image/png" href="images/icon.png" sizes="96x96">
     
@@ -31,11 +29,11 @@
     </div>
     <h4 id="turn" style="color:white">Turn</h4>
 
-    <canvas id="gamearea" width="400" height="400" onmousedown="clicked(event)"></canvas>
+    <canvas id="gamearea"  onmousedown="clicked(event)"></canvas>
 
     
 
-    <button class="btn" onclick="initilize()">Restart</button>
+    <button id="button" onclick="initilize()">Restart</button>
 
 
     </div>

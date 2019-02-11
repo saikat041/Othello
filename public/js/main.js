@@ -3,18 +3,40 @@
 
 initilize();
 
+
+// Detecting mobile browser
+function isMobile(){
+    var mobile = ['iphone','ipad','android','blackberry','nokia','opera mini','windows mobile','windows phone','iemobile']; 
+    for (var i in mobile) if (navigator.userAgent.toLowerCase().indexOf(mobile[i].toLowerCase()) > 0) return true;
+    return false;
+}
+
 // Initilization function turn = 1 for white or Player 1 and turn =-1 for black or player 2
 function initilize(){
     window.mat=new Array(9)
     window.turn=1
     for(var i=0;i<=8;i++)mat[i]=new Array(9)
+    window.cellSize = 60
+
+    // Detecting mobile browser
+    if (isMobile()) {
+        button = document.getElementById('button')
+        button.style.fontSize = '2rem'
+        button.style.borderRadius = '0.50rem'
+        cellSize = 100
+     }
+    
     window.canvas=document.getElementById("gamearea")
+    document.getElementById('board').style.width = String(8*cellSize) + 'px'
+    canvas.width = 8*cellSize
+    canvas.height = 8*cellSize
+
     window.ctx=canvas.getContext('2d')
     ctx.fillStyle = "#00FF00"
     for(var i=1;i<=8;i++){
         for(var j=1;j<=8;j++){
             mat[i][j] = 0
-            ctx.fillRect((j-1)*50,(i-1)*50,49,49)
+            ctx.fillRect((j-1)*cellSize,(i-1)*cellSize,cellSize-1,cellSize-1)
         }
     }
     updateColor(4,4,-1)
@@ -31,8 +53,8 @@ function initilize(){
 // Function called when theres is turn
 function clicked(event){
     var rect = canvas.getBoundingClientRect();
-    var j = Math.floor((event.clientX - rect.left)/50) + 1
-    var i = Math.floor((event.clientY - rect.top)/50) + 1
+    var j = Math.floor((event.clientX - rect.left)/cellSize) + 1
+    var i = Math.floor((event.clientY - rect.top)/cellSize) + 1
 
     if(mat[i][j]!=0)return;
 
@@ -173,13 +195,13 @@ function updateColor(i, j, color){
     else if(color == -1){
         ctx.fillStyle = "#000000";
     }
-    ctx.arc((j-1)*50+25,(i-1)*50+25,24,0,2*Math.PI);
+    ctx.arc((j-1)*cellSize + cellSize/2, (i-1)*cellSize + cellSize/2, cellSize/2 -1, 0,2*Math.PI);
     ctx.fill();
 }
 
 function resetColor(i, j){
     ctx.fillStyle = "#00FF00";
-    ctx.fillRect((j-1)*50,(i-1)*50,49,49)
+    ctx.fillRect((j-1)*cellSize, (i-1)*cellSize, cellSize-1, cellSize-1)
 }
 
 // Update score by counting no. of white and black
