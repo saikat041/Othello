@@ -11,7 +11,8 @@ npm start
  go to : http://localhost:8080/
 
 ### Screenshot
-![othello](https://user-images.githubusercontent.com/19255785/52018780-9706fc80-2511-11e9-8d0e-9f989e79e9ef.png)
+![screenshot_2019-02-13 othello](https://user-images.githubusercontent.com/19255785/52676080-e0623d80-2f4e-11e9-9ef1-c77cd6a789d2.png)
+
 
 
 
